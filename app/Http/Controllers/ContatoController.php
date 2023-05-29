@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\StoreContatoRequest;
 use App\Http\Requests\UpdateContatoRequest;
 use App\Models\Contato;
+use Illuminate\Support\Facades\Validator;
 
 class ContatoController extends Controller
 {
@@ -36,7 +37,23 @@ class ContatoController extends Controller
      */
     public function store(StoreContatoRequest $request)
     {
-        return 'Teste';
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:5|string',
+            'contact' => 'required|min:9|max:9',
+            'email_address' => 'required|email'
+        ]);
+ 
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+        
+        Contato::create([
+            'name' => $request->name,
+            'contact' => $request->contact,
+            'email_address' => $request->email_address
+        ]);
+        
+        return redirect()->back();
     }
 
     /**
