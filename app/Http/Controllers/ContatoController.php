@@ -87,7 +87,23 @@ class ContatoController extends Controller
      */
     public function update(UpdateContatoRequest $request, Contato $contato)
     {
-        return 'teste';
+        $validator = Validator::make($request->all(), [
+            'name' => 'required|min:5|string',
+            'contact' => 'required|min:9|max:9',
+            'email_address' => 'required|email'
+        ]);
+        
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator);
+        }
+        
+        Contato::where('id', $request->id)->update([
+            'name' => $request->name,
+            'contact' => $request->contact,
+            'email_address' => $request->email_address
+        ]);
+        
+        return 'Dados atualizados';
     }
 
     /**
