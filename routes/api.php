@@ -18,4 +18,4 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::resource('contact', 'App\Http\Controllers\ContatoController')->middleware('auth');
+Route::resource('contact', 'App\Http\Controllers\ContatoController');

@@ -68,3 +68,22 @@ php artisan migrate:rollback
 php artisan migrate --seed
 it add .
 git add .
+git add .
+git commit -m "Exibição dos contatos adicionados implementado na página inicial"
+git add .
+git commit -m "SoftDeletes implementado"
+php artisan
+composer require laravel/ui
+php artisan ui vue --auth
+npm install && npm run dev
+npm run dev
+git add .
+git commit -m "Auth implemented"
+git reset --soft HEAD~1
+git status
+git log --oneline --all
+git add .
+git commit -m "Auth implementado"
+git status
+git add .
+git commit -m "Novo usuário adicionado com seeder"
