@@ -114,7 +114,7 @@ class ContatoController extends Controller
      */
     public function destroy(Contato $contato, $id)
     {
-        Contato::where('id', $id)->delete();
+        Contato::find($id)->delete();
         return 'Contato Deletado';
     }
 }

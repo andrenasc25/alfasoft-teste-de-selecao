@@ -17,9 +17,7 @@
                   <th scope="row">{{$contato->id}}</th>
                   <td>{{$contato->name}}</td>
                   <td>
-                      <a href="{{route('edit-contact', $contato->id)}}">
-                          <button type="button" class="btn btn-primary">Editar</button>
-                      </a>
+                      <a href="{{route('edit-contact', $contato->id)}}" class="link-opacity-100 mr-2">Editar</a>
                       <button type="button" class="btn btn-primary" onClick="deletar(this.value)" value="{{$contato->id}}">Deletar</button>
                   </td>
               </tr>
