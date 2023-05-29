@@ -13,23 +13,14 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <th scope="row">1</th>
-          <td>Mark</td>
-          <td>Otto</td>
-          <td>@mdo</td>
-        </tr>
-        <tr>
-          <th scope="row">2</th>
-          <td>Jacob</td>
-          <td>Thornton</td>
-          <td>@fat</td>
-        </tr>
-        <tr>
-          <th scope="row">3</th>
-          <td colspan="2">Larry the Bird</td>
-          <td>@twitter</td>
-        </tr>
+          @foreach($contatos as $contato)
+              <tr>
+                  <th scope="row">1</th>
+                  <td>{{$contato->name}}</td>
+                  <td>{{$contato->contact}}</td>
+                  <td>{{$contato->email_address}}</td>
+              </tr>
+          @endforeach
       </tbody>
     </table>
 </div>
