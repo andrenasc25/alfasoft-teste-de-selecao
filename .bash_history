@@ -98,3 +98,11 @@ git commit -m "Rotas protegidas para uso autenticado"
 php artisan cache:clear
 git add .
 git commit -m "Feedback de erro implementado à página add-contact"
+git add .
+git commit -m "Página edit-contact atualizada para mostrar os status de resposta"
+git add .
+git commit -m "Inserção de novo contato implementado com regras de validação"
+git add .
+git commit -m "Funcionalidade para deletar contato implementada"
+php artisan migrate
+git add .

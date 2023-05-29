@@ -6,6 +6,7 @@ use App\Http\Requests\StoreContatoRequest;
 use App\Http\Requests\UpdateContatoRequest;
 use App\Models\Contato;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
 
 class ContatoController extends Controller
 {
@@ -39,8 +40,8 @@ class ContatoController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:5|string',
-            'contact' => 'required|min:9|max:9',
-            'email_address' => 'required|email'
+            'contact' => 'required|min:9|max:9|unique:contatos',
+            'email_address' => 'required|email|unique:contatos'
         ],
         [
             'name.required' => 'O campo nome não pode ficar vazio',
@@ -49,8 +50,10 @@ class ContatoController extends Controller
             'contact.required' => 'O campo contato não pode ficar vazio',
             'contact.min' => 'O campo contato precisa ter 9 dígitos',
             'contact.max' => 'O campo contato precisa ter 9 dígitos',
+            'contact.unique' => 'O campo contato precisa ser único',
             'email_address.required' => 'O campo email não pode ficar vazio',
-            'email_address.email' => 'O campo email precisa ser do tipo email'
+            'email_address.email' => 'O campo email precisa ser do tipo email',
+            'email_address.unique' => 'O campo email precisa ser único'
         ]);
         
         if ($validator->fails()) {
@@ -99,8 +102,8 @@ class ContatoController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|min:5|string',
-            'contact' => 'required|min:9|max:9',
-            'email_address' => 'required|email'
+            'contact' => 'required|min:9|max:9|unique:contatos',
+            'email_address' => 'required|email|unique:contatos'
         ],
         [
             'name.required' => 'O campo nome não pode ficar vazio',
@@ -109,8 +112,10 @@ class ContatoController extends Controller
             'contact.required' => 'O campo contato não pode ficar vazio',
             'contact.min' => 'O campo contato precisa ter 9 dígitos',
             'contact.max' => 'O campo contato precisa ter 9 dígitos',
+            'contact.unique' => 'O campo contato precisa ser único',
             'email_address.required' => 'O campo email não pode ficar vazio',
-            'email_address.email' => 'O campo email precisa ser do tipo email'
+            'email_address.email' => 'O campo email precisa ser do tipo email',
+            'email_address.unique' => 'O campo email precisa ser único'
         ]);
         
         if ($validator->fails()) {

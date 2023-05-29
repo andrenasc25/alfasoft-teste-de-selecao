@@ -34,7 +34,7 @@
             id: id
         })
         .then((response) => {
-            console.log(response)
+            location.reload()
         })
     }
 </script>
