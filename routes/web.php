@@ -13,6 +13,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', 'App\Http\Controllers\PaginasController@index');
-Route::get('/add-contact', 'App\Http\Controllers\PaginasController@addContact');
-Route::get('/contact-details', 'App\Http\Controllers\PaginasController@contactDetails');
+Route::get('/', 'App\Http\Controllers\PaginasController@index')->name('/');
+Route::get('/add-contact', 'App\Http\Controllers\PaginasController@addContact')->name('add-contact');
+Route::get('/contact-details', 'App\Http\Controllers\PaginasController@contactDetails')->name('contact-details');
