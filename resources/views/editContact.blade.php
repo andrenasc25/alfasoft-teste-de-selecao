@@ -1,8 +1,8 @@
 @extends('layouts.layout')
 @section('content')
 @include('includes.navbar')
-<div class="container">
-    <h2>Editar um contato</h2>
+<div class="container pt-5">
+    <h2 class="mb-4">Editar um contato</h2>
     @if ($errors->any())
         <div class="alert alert-danger">
             <ul>

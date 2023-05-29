@@ -1,9 +1,9 @@
 @extends('layouts.layout')
 @section('content')
 @include('includes.navbar')
-<div class="container">
+<div class="container pt-5">
   <h2>Lista de Contatos</h2>
-  <table class="table">
+  <table class="table mt-5">
       <thead>
         <tr>
           <th scope="col">#</th>
@@ -24,10 +24,21 @@
                       <a href="{{route('edit-contact', $contato->id)}}">
                           <button type="button" class="btn btn-primary">Editar</button>
                       </a>
+                      <button type="button" class="btn btn-primary" onClick="deletar(this.value)" value="{{$contato->id}}">Deletar</button>
                   </td>
               </tr>
           @endforeach
       </tbody>
     </table>
 </div>
+<script>
+    function deletar(id){
+        axios.delete('/api/contact/' + id, {
+            id: id
+        })
+        .then((response) => {
+            console.log(response)
+        })
+    }
+</script>
 @endsection

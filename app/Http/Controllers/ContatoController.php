@@ -112,8 +112,9 @@ class ContatoController extends Controller
      * @param  \App\Models\Contato  $contato
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Contato $contato)
+    public function destroy(Contato $contato, $id)
     {
-        //
+        Contato::where('id', $id)->delete();
+        return 'Contato Deletado';
     }
 }
