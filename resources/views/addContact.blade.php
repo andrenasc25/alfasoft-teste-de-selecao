@@ -3,7 +3,7 @@
 @include('includes.navbar')
 <div class="container pt-5">
     <h2 class="mb-4">Adicionar um novo contato</h2>
-    <div class="alert alert-danger" id="errors">
+    <div id="status">
         
     </div>
     <form method="post">
@@ -41,10 +41,16 @@
             '_method': 'post'
         })
         .then((response) => {
-            let text = "";
-            Object.values(response.data).forEach(val => text += val[0] + "<br>");
-            
-            document.getElementById("errors").innerHTML = text;
+            if(typeof(response.data) == 'string'){
+                document.getElementById('status').className = 'alert alert-primary'
+                document.getElementById("status").innerHTML = response.data;
+            }else{
+                document.getElementById('status').className = 'alert alert-danger'
+                let text = "";
+                Object.values(response.data).forEach(val => text += val[0] + "<br>");
+                
+                document.getElementById("status").innerHTML = text;
+            }
         })
     })
 </script>

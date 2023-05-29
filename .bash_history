@@ -87,3 +87,14 @@ git commit -m "Auth implementado"
 git status
 git add .
 git commit -m "Novo usuário adicionado com seeder"
+git add .
+git commit -m "Atualização de contato implementada"
+git add .
+git commit -m "Ação para editar contato adicionada à página principal"
+git add .
+git commit -m "Página 'contact-details' implementada"
+git add .
+git commit -m "Rotas protegidas para uso autenticado"
+php artisan cache:clear
+git add .
+git commit -m "Feedback de erro implementado à página add-contact"
