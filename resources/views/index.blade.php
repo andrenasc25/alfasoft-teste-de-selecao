@@ -7,15 +7,15 @@
       <thead>
         <tr>
           <th scope="col">#</th>
-          <th scope="col">First</th>
-          <th scope="col">Last</th>
-          <th scope="col">Handle</th>
+          <th scope="col">Nome</th>
+          <th scope="col">Contato</th>
+          <th scope="col">Endereço de Email</th>
         </tr>
       </thead>
       <tbody>
           @foreach($contatos as $contato)
               <tr>
-                  <th scope="row">1</th>
+                  <th scope="row">{{$contato->id}}</th>
                   <td>{{$contato->name}}</td>
                   <td>{{$contato->contact}}</td>
                   <td>{{$contato->email_address}}</td>

@@ -87,7 +87,7 @@ class ContatoController extends Controller
      */
     public function update(UpdateContatoRequest $request, Contato $contato)
     {
-        //
+        return 'teste';
     }
 
     /**

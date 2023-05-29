@@ -19,4 +19,9 @@ class PaginasController extends Controller
     public function contactDetails(){
         return view('contactDetails');
     }
+    
+    public function editContact($id){
+        $contato = Contato::where('id', $id)->get();
+        return view('editContact', ['contato' => $contato]);
+    }
 }
