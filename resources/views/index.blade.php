@@ -10,6 +10,7 @@
           <th scope="col">Nome</th>
           <th scope="col">Contato</th>
           <th scope="col">Endereço de Email</th>
+          <th scope="col">Ações</th>
         </tr>
       </thead>
       <tbody>
@@ -19,6 +20,11 @@
                   <td>{{$contato->name}}</td>
                   <td>{{$contato->contact}}</td>
                   <td>{{$contato->email_address}}</td>
+                  <td>
+                      <a href="{{route('edit-contact', $contato->id)}}">
+                          <button type="button" class="btn btn-primary">Editar</button>
+                      </a>
+                  </td>
               </tr>
           @endforeach
       </tbody>
