@@ -17,3 +17,7 @@ Route::get('/', 'App\Http\Controllers\PaginasController@index')->name('/');
 Route::get('/add-contact', 'App\Http\Controllers\PaginasController@addContact')->name('add-contact');
 Route::get('/contact-details', 'App\Http\Controllers\PaginasController@contactDetails')->name('contact-details');
 Route::get('/edit-contact/{id}', 'App\Http\Controllers\PaginasController@editContact')->name('edit-contact');
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
