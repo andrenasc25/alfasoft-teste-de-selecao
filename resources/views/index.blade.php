@@ -3,6 +3,9 @@
 @include('includes.navbar')
 <div class="container pt-5">
   <h2>Lista de Contatos</h2>
+  <div id="status">
+        
+  </div>
   <table class="table mt-5">
       <thead>
         <tr>

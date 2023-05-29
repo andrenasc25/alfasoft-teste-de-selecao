@@ -101,10 +101,20 @@ class ContatoController extends Controller
             'name' => 'required|min:5|string',
             'contact' => 'required|min:9|max:9',
             'email_address' => 'required|email'
+        ],
+        [
+            'name.required' => 'O campo nome não pode ficar vazio',
+            'name.min' => 'O campo nome precisa ter pelo menos 5 caracteres',
+            'name.string' => 'O campo nome precisa ser do tipo texto',
+            'contact.required' => 'O campo contato não pode ficar vazio',
+            'contact.min' => 'O campo contato precisa ter 9 dígitos',
+            'contact.max' => 'O campo contato precisa ter 9 dígitos',
+            'email_address.required' => 'O campo email não pode ficar vazio',
+            'email_address.email' => 'O campo email precisa ser do tipo email'
         ]);
         
         if ($validator->fails()) {
-            return redirect()->back()->withErrors($validator);
+            return $validator->errors();
         }
         
         Contato::where('id', $request->id)->update([

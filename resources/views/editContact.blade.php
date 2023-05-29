@@ -3,15 +3,9 @@
 @include('includes.navbar')
 <div class="container pt-5">
     <h2 class="mb-4">Editar um contato</h2>
-    @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
+    <div id="status">
+        
+    </div>
     <form method="put" action="{{url('/api/contact/' . $contato[0]->id)}}">
         <input type="hidden" name="id" id="id" value="{{ $contato[0]->id }}">
         <input type="hidden" name="_token" value="{{csrf_token()}}" id="_token">
@@ -49,7 +43,16 @@
             _token: _token
         })
         .then((response) => {
-            console.log(response.data)
+            if(typeof(response.data) == 'string'){
+                document.getElementById('status').className = 'alert alert-primary'
+                document.getElementById("status").innerHTML = response.data;
+            }else{
+                document.getElementById('status').className = 'alert alert-danger'
+                let text = "";
+                Object.values(response.data).forEach(val => text += val[0] + "<br>");
+                
+                document.getElementById("status").innerHTML = text;
+            }
         })
     })
 </script>
