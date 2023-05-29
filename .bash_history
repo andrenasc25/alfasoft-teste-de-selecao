@@ -52,3 +52,19 @@ git commit -m "Estrutura da página inicial implementada"
 git add .
 git commit -m "Estrutura da página 'add-contact' implementada"
 git push origin master
+git add .
+git commit -m "Navbar atualizado"
+php artisan optimize:clear
+git add .
+git commit -m "Página para atualizar contato implementada"
+php artisan migrate:rollback
+php artisan migrate
+php artisan make:seeder UserSeeder
+php artisan migrate:rollback
+php artisan migrate --seed
+php artisan migrate:rollback
+php artisan migrate --seed
+php artisan migrate:rollback
+php artisan migrate --seed
+it add .
+git add .
