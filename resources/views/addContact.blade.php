@@ -3,7 +3,8 @@
 @include('includes.navbar')
 <div class="container">
     <h2>Adicionar um novo contato</h2>
-    <form>
+    <form method="post" action="{{url('/api/contact/')}}">
+        @csrf
       <div class="mb-3">
         <label for="nome" class="form-label">Nome</label>
         <input class="form-control" type="text" placeholder="Nome" aria-label="default input example">

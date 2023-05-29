@@ -15,7 +15,7 @@ class ContatoController extends Controller
      */
     public function index()
     {
-        //
+        
     }
 
     /**
@@ -36,7 +36,7 @@ class ContatoController extends Controller
      */
     public function store(StoreContatoRequest $request)
     {
-        //
+        return 'Teste';
     }
 
     /**
